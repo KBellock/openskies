@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support — Open Skies PhotoForecast</title>
+<meta name="description" content="Get help with Open Skies PhotoForecast: contact, frequently asked questions, and how to report a bug.">
+<meta name="theme-color" content="#0a0d12">
+<link rel="icon" href="assets/emblem.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.png" sizes="48x48">
+<link rel="apple-touch-icon" href="assets/app-icon.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/emblem.svg" alt="" width="30" height="30">
+      <span class="brand-name">Open Skies <span>PhotoForecast</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <a href="support.html" aria-current="page">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <div class="page-head">
+    <div class="wrap read">
+      <h1>Support</h1>
+      <p>
+        Open Skies is made by one person. Questions, bugs, and feature ideas
+        all land in the same inbox and I read every one.
+      </p>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap read">
+
+      <div class="contact">
+        <h2>Contact</h2>
+        <p class="email-pending">A dedicated support address is being set up and
+        will be published here before launch.</p>
+        <p style="margin-top:14px;">
+          Once it's live, I usually reply within a couple of days. For a bug
+          report, it helps a lot to include your iPhone model, your iOS version,
+          the app version (Settings tab, at the bottom), and what you were doing
+          when it went wrong — a screenshot is ideal.
+        </p>
+      </div>
+
+      <h2 style="margin-bottom:20px;">Frequently asked questions</h2>
+
+      <div class="faq">
+
+        <details>
+          <summary>Do I need an account?</summary>
+          <div class="faq-body">
+            <p>
+              No. There is no sign-up, no login, and no password. Every feature is
+              available the moment you open the app.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Does the app need my location?</summary>
+          <div class="faq-body">
+            <p>
+              No — location access is optional. If you grant it, Open Skies shows
+              conditions for where you are and can find the best nearby spots. If
+              you'd rather not, search for any location by name instead and the
+              app works the same way.
+            </p>
+            <p>
+              You can change this any time in <strong>iOS Settings → Privacy &amp;
+              Security → Location Services → Open Skies</strong>.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Which devices are supported?</summary>
+          <div class="faq-body">
+            <p>
+              Open Skies is an iPhone app and is designed for portrait
+              orientation. It will run on an iPad in iPhone compatibility mode,
+              but there is no iPad-native layout yet.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How are the hourly scores calculated?</summary>
+          <div class="faq-body">
+            <p>
+              Each hour is scored from 0 to 100 for the photography mode you've
+              selected. The score combines cloud cover, wind and gusts,
+              precipitation, visibility, humidity, sun angle, and moon conditions
+              — weighted differently per mode.
+            </p>
+            <p>
+              Heavy overcast, for example, pushes a portrait score up and a
+              landscape score down. Still air matters enormously for macro and
+              barely at all for street.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Why don't the golden hour times match another app?</summary>
+          <div class="faq-body">
+            <p>
+              Many apps treat golden hour as a fixed number of minutes around
+              sunset. Open Skies computes it from the actual sun position at your
+              exact coordinates, so the window changes with your latitude and the
+              time of year — it can be far longer in northern summer than a fixed
+              offset would suggest. Blue hour and astronomical darkness are
+              derived the same way.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Where does the forecast data come from?</summary>
+          <div class="faq-body">
+            <p>Open Skies has no backend of its own. It pulls from public sources:</p>
+            <ul>
+              <li><strong>Open-Meteo</strong> — weather forecasts, air quality (haze and wildfire smoke), and location search.</li>
+              <li><strong>Geoapify / OpenStreetMap</strong> — nearby photography locations.</li>
+              <li><strong>US National Weather Service</strong> — active severe-weather alerts.</li>
+            </ul>
+            <p>
+              Place names and the Locations map are handled by Apple's on-device
+              services.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Why do I see no severe-weather alerts?</summary>
+          <div class="faq-body">
+            <p>
+              Alerts come from the US National Weather Service, so they're only
+              available for locations in the United States. Everywhere else, the
+              alerts section simply stays empty. An empty section in the US means
+              there are no active warnings for that location right now.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>My reminders aren't arriving.</summary>
+          <div class="faq-body">
+            <p>Reminders are scheduled locally on your device. A few things to check:</p>
+            <ul>
+              <li>Notifications are allowed in <strong>iOS Settings → Notifications → Open Skies</strong>.</li>
+              <li>Focus or Do Not Disturb isn't silencing them.</li>
+              <li>The location you expect a reminder for is saved in the app.</li>
+            </ul>
+            <p>
+              Reminders only fire when top-tier conditions are actually forecast,
+              so a quiet stretch of weather means a quiet phone. If everything
+              above checks out and you still get nothing, email me.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>The forecast won't load.</summary>
+          <div class="faq-body">
+            <p>
+              The app needs a network connection to fetch a forecast. If you're
+              online and it still fails, the upstream weather service may be
+              briefly unavailable — pull to refresh in a minute or two. If it
+              persists, send me the location you were trying to load.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I manage or cancel an Open Skies Pro subscription?</summary>
+          <div class="faq-body">
+            <p>
+              Subscriptions are billed by Apple, not by me, and are managed on
+              your device: <strong>Settings → your name → Subscriptions</strong>.
+              Cancelling there stops future renewals and keeps your access until
+              the end of the paid period.
+            </p>
+            <p>
+              If you've reinstalled the app or moved to a new iPhone, use
+              <strong>Restore Purchases</strong> in the app to bring your
+              subscription back.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I get a refund?</summary>
+          <div class="faq-body">
+            <p>
+              Refunds are handled entirely by Apple. Request one at
+              <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>
+              with the Apple Account you purchased on. I have no access to
+              payment details and can't issue refunds directly — but do tell me
+              what went wrong so I can fix it.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I delete my data?</summary>
+          <div class="faq-body">
+            <p>
+              Everything the app stores — saved locations, preferences, scheduled
+              reminders — lives on your device only. Deleting the app removes all
+              of it. There is no server-side account to close, because there is
+              no server.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>I have a feature request.</summary>
+          <div class="faq-body">
+            <p>
+              Send it over. Open Skies is actively developed and requests from
+              photographers who actually use it shape what gets built next.
+            </p>
+          </div>
+        </details>
+
+      </div>
+
+      <p style="margin-top:40px;color:var(--muted);">
+        Still stuck? Use the support address above once it is published.
+      </p>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© 2026 Open Skies PhotoForecast</span>
+    <nav aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
