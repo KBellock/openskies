@@ -1,7 +1,8 @@
 # Open Skies PhotoForecast — website
 
 Static marketing, support, and privacy site for the **Open Skies PhotoForecast**
-iOS app. No build step: plain HTML + one stylesheet, served by GitHub Pages.
+iOS app. No build step: plain HTML + one stylesheet, served by GitHub Pages at
+<https://openskiesapp.com>.
 
 ## Pages
 
@@ -25,7 +26,9 @@ Then open http://localhost:8000.
 ## Deploying
 
 Pushed to `main`; GitHub Pages serves the repo root. `.nojekyll` is present so
-Pages copies files as-is rather than running Jekyll.
+Pages copies files as-is rather than running Jekyll. `CNAME` binds the custom
+domain `openskiesapp.com` (DNS is on Cloudflare: four apex `A` records to
+GitHub's Pages IPs, plus `www` as a `CNAME` — all unproxied / DNS-only).
 
 ## Assets
 
