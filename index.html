@@ -45,7 +45,7 @@
           visibility, humidity, sun angle, and the moon.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="support.html">Get support</a>
+          <a class="btn btn-primary" href="#notify">Get launch updates</a>
           <a class="btn btn-ghost" href="#features">See what it does</a>
         </div>
         <p class="note" style="margin-top:18px;">Coming soon to the App Store · Currently in TestFlight beta</p>
@@ -183,6 +183,43 @@
     </div>
   </section>
 
+  <section id="notify">
+    <div class="wrap">
+      <div class="signup">
+        <div class="signup-copy">
+          <h2>Get notified when the app launches</h2>
+          <p>
+            One email when Open Skies reaches the App Store, plus the occasional
+            note about a significant update. That&rsquo;s all &mdash; a few emails a
+            year at most, and every one of them has an unsubscribe link.
+          </p>
+        </div>
+
+        <form class="signup-form" id="notify-form" method="post"
+              action="https://app.kit.com/forms/KIT_FORM_ID/subscriptions">
+          <label class="sr-only" for="notify-email">Email address</label>
+          <div class="field-row">
+            <input id="notify-email" name="email_address" type="email"
+                   placeholder="you@example.com" required
+                   autocomplete="email" spellcheck="false">
+            <button class="btn btn-primary" type="submit">Notify me</button>
+          </div>
+
+          <div class="hp" aria-hidden="true">
+            <label for="notify-company">Company</label>
+            <input id="notify-company" name="company" type="text"
+                   tabindex="-1" autocomplete="off">
+          </div>
+
+          <p class="form-note" id="notify-status" role="status" aria-live="polite">
+            We&rsquo;ll send a confirmation link to check it&rsquo;s really you.
+            Your address is used only for these updates.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="wrap">
       <div class="section-head">
@@ -195,7 +232,7 @@
       <div class="strip">
         <div class="strip-item">
           <h3>Nothing to sign up for</h3>
-          <p>No accounts, no email, no password. Open the app and it works.</p>
+          <p>The app has no accounts, no email, no password. Open it and it works.</p>
         </div>
         <div class="strip-item">
           <h3>Stays on your device</h3>
@@ -224,6 +261,72 @@
     </nav>
   </div>
 </footer>
+
+<script>
+(function () {
+  var form = document.getElementById("notify-form");
+  if (!form) return;
+
+  var status = document.getElementById("notify-status");
+  var button = form.querySelector('button[type="submit"]');
+  var honeypot = document.getElementById("notify-company");
+  var resting = status.innerHTML;
+
+  function say(msg, state) {
+    status.textContent = msg;
+    status.className = "form-note" + (state ? " is-" + state : "");
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    // Endpoint not wired up yet — fail loudly rather than silently dropping signups.
+    if (form.action.indexOf("KIT_FORM_ID") !== -1) {
+      say("Signups aren't switched on yet. Please check back shortly.", "error");
+      return;
+    }
+
+    // Honeypot: humans never see this field, so anything in it is a bot.
+    // Report success so the bot has no signal to retry against.
+    if (honeypot && honeypot.value !== "") {
+      form.reset();
+      say("Thanks — check your inbox for the confirmation link.", "success");
+      return;
+    }
+
+    var data = new FormData(form);
+    data.delete("company");
+
+    button.disabled = true;
+    say("Sending…");
+
+    fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" }
+    })
+      .then(function (response) {
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        form.reset();
+        say("Almost there — check your inbox and click the confirmation link.", "success");
+      })
+      .catch(function () {
+        say("Something went wrong. Please try again, or email support@openskiesapp.com.", "error");
+      })
+      .then(function () {
+        button.disabled = false;
+      });
+  });
+
+  // Restore the resting hint once the visitor starts a fresh attempt.
+  form.addEventListener("input", function () {
+    if (status.className !== "form-note") {
+      status.innerHTML = resting;
+      status.className = "form-note";
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
