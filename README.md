@@ -12,8 +12,10 @@ iOS app. No build step: plain HTML + one stylesheet, served by GitHub Pages at
 | `support.html` | Contact + FAQ | **Support URL** (required) |
 | `privacy.html` | Privacy policy | **Privacy Policy URL** (required) |
 
-`privacy.html` is a verbatim rendering of `PRIVACY.md` in the app repo. When that
-file changes, update this page to match and bump the "Last updated" date in both.
+`privacy.html` is the **source of truth** for the privacy policy text. The app
+repo links to it (`PRIVACY_URL` in `lib/premium/config.ts`) and its `PRIVACY.md`
+is only a pointer here, so edit the policy in this file and bump the
+"Last updated" date when you do. Nothing needs syncing on the app side.
 
 ## Local preview
 
