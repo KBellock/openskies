@@ -196,7 +196,7 @@
         </div>
 
         <form class="signup-form" id="notify-form" method="post"
-              action="https://app.kit.com/forms/KIT_FORM_ID/subscriptions">
+              action="https://app.kit.com/forms/9874829/subscriptions">
           <label class="sr-only" for="notify-email">Email address</label>
           <div class="field-row">
             <input id="notify-email" name="email_address" type="email"
@@ -279,12 +279,6 @@
 
   form.addEventListener("submit", function (event) {
     event.preventDefault();
-
-    // Endpoint not wired up yet — fail loudly rather than silently dropping signups.
-    if (form.action.indexOf("KIT_FORM_ID") !== -1) {
-      say("Signups aren't switched on yet. Please check back shortly.", "error");
-      return;
-    }
 
     // Honeypot: humans never see this field, so anything in it is a bot.
     // Report success so the bot has no signal to retry against.
