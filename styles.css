@@ -481,8 +481,26 @@ a:focus-visible, summary:focus-visible {
 .download-copy .cta-row { margin-top: 22px; }
 .download-copy .note { margin-top: 14px; }
 
-.btn-lg { padding: 14px 26px; font-size: 1rem; }
-
 @media (max-width: 700px) {
   .download { grid-template-columns: 1fr; justify-items: start; text-align: left; }
+}
+
+/* ---------- official App Store badge ---------- */
+
+/* Apple's badge artwork must not be recoloured or reproportioned, so this only
+   handles placement, clear space, and focus. Min height 40px per Apple's
+   marketing guidelines; the surrounding margin preserves the required
+   clear space of one quarter the badge height. */
+.badge-link {
+  display: inline-block;
+  line-height: 0;
+  border-radius: 8px;
+  margin: 3px;
+  transition: opacity 0.15s ease;
+}
+.badge-link:hover { opacity: 0.85; text-decoration: none; }
+.badge-link img { display: block; height: auto; max-width: 100%; }
+.badge-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
