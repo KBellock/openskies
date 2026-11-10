@@ -611,3 +611,17 @@ a:focus-visible, summary:focus-visible {
   .mode-cols { grid-template-columns: 1fr; }
   .mode-head { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
+
+/* ---------- Google Play badge ---------- */
+
+/* Google's badge PNG carries 41px of transparent padding on all sides (art is
+   564x168 inside a 646x250 image), while Apple's SVG has none. Rendering both
+   at the same height would make Play look ~33% smaller, so Play is rendered
+   taller and the surplus padding is pulled back with a negative margin —
+   leaving enough to satisfy Google's clear-space rule. */
+.cta-row .badge-link { flex: 0 0 auto; }
+
+/* Art is 168/250 of the image height, so to match a 50px Apple badge the Play
+   image must render at 50 / 0.672 = 74.4px (83.3px against the 56px badge). */
+.badge-play img { height: 74.4px; width: auto; margin: -12px -4px; }
+.download .badge-play img { height: 83.3px; width: auto; margin: -14px -5px; }
