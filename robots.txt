@@ -1,0 +1,7 @@
+# Open Skies PhotoForecast — https://openskiesapp.com
+# Everything here is public; nothing is disallowed.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://openskiesapp.com/sitemap.xml
